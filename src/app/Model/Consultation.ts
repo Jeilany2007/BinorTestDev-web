@@ -2,7 +2,7 @@ export class Consultation {
     public id:number;
     public nom:string;
     public prenom:string;
-    public dateNaissance:Date;
+    public dateNassaince:Date;
     public sexe:string;
     public photo:string;
     public groupsanguin:string;

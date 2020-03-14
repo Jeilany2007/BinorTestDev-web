@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Consultation } from "../Model/Consultation";
 import { Observable } from 'rxjs';
 import { ConsultationService } from '../consultation.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-consultation',
@@ -25,16 +26,17 @@ export class ConsultationComponent implements OnInit {
 
   // };
   
-  constructor(private consultService:ConsultationService) { }
+  constructor(private consultService:ConsultationService,private router:Router) { }
 
   ngOnInit(): void {
   }
   onSaveConsultation(data:any){
     
-    this.consultService.SaveConsultation(this.consultService.host+"/consultations",data)
+    this.consultService.SaveConsultation(this.consultService.host+"/consultation",data)
     .subscribe(res =>{
       this.consult=res;
       console.log(res);
+      this.router.navigateByUrl("/consultation");
     },err=>{
       console.log(err);
     })
